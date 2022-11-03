@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Modelo página responsiva</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <a href="#" class="logo">logo</a>
+
+        <!--Botão que aparecerá em dispositivos móveis. -->
+        <div class="menu-btn"></div>
+
+        <!--Vamos criar os links do menu do nosso site.-->
+        <nav class="navigation">
+            <div class="navigation-items">
+                <a href="/inicio">Início</a>
+                <a href="/sobre">Sobre</a>
+                <a href="/servicos">Serviços</a>
+                <a href="/estrutura">Estrutura</a>
+                <a href="/contato">Contato</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="home">
+        <video class="video-slide active" src="./src/fachada-spa.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="./src/tratamento-facial.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="./src/sauna.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="./src/massagem.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="./src/banheira.mp4" autoplay muted loop></video>
+
+        <div class="content active">
+            <h1>pacotes especiais.<br><span>spa</span></h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus assumenda animi dolorem atque eum
+                ullam! Nisi, distinctio est delectus nobis, veritatis, repudiandae recusandae tempore dicta praesentium
+                suscipit ullam dolor neque.Lorem </p>
+            <a href="#">saiba mais</a>
+        </div>
+
+        <div class="content">
+            <h1>tratamentos<br><span>faciais</span></h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus assumenda animi dolorem atque eum
+                ullam! Nisi, distinctio est delectus nobis, veritatis, repudiandae recusandae tempore dicta praesentium
+                suscipit ullam dolor neque.Lorem </p>
+            <a href="#">saiba mais</a>
+        </div>
+
+        <div class="content">
+            <h1>visite nossas<br><span>saunas</span></h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus assumenda animi dolorem atque eum
+                ullam! Nisi, distinctio est delectus nobis, veritatis, repudiandae recusandae tempore dicta praesentium
+                suscipit ullam dolor neque.Lorem </p>
+            <a href="#">saiba mais</a>
+        </div>
+
+        <div class="content">
+            <h1>relaxe com<br><span>massagens</span></h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus assumenda animi dolorem atque eum
+                ullam! Nisi, distinctio est delectus nobis, veritatis, repudiandae recusandae tempore dicta praesentium
+                suscipit ullam dolor neque.Lorem </p>
+            <a href="#">saiba mais</a>
+        </div>
+
+        <div class="content">
+            <h1>banhos<br><span> especiais</span></h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus assumenda animi dolorem atque eum
+                ullam! Nisi, distinctio est delectus nobis, veritatis, repudiandae recusandae tempore dicta praesentium
+                suscipit ullam dolor neque.Lorem </p>
+            <a href="#">saiba mais</a>
+        </div>
+
+        <div class="media-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+
+        <div class="slider-navigation">
+            <div class="nav-btn active"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+        </div>
+    </main>
+
+
+    <script type="text/javascript">
+
+        //Javascript do menu de navegação responsivo
+        const menuBtn = document.querySelector(".menu-btn");
+        const navigation = document.querySelector(".navigation");
+        menuBtn.addEventListener("click", () => {
+            menuBtn.classList.toggle("active");
+            navigation.classList.toggle("active");
+        });
+
+
+        //Javascript for video slider navigation
+        const btns = document.querySelectorAll(".nav-btn");
+        const slides = document.querySelectorAll(".video-slide");
+        const contents = document.querySelectorAll(".content");
+        var sliderNav = function (manual) {
+            btns.forEach((btn) => {
+                btn.classList.remove("active");
+            })
+            slides.forEach((slide) => {
+                slide.classList.remove("active");
+            })
+            contents.forEach((content) => {
+                content.classList.remove("active");
+            })
+            btns[manual].classList.add("active");
+            slides[manual].classList.add("active");
+            contents[manual].classList.add("active");
+        }
+        btns.forEach((btn, i) => {
+            btn.addEventListener("click", () => {
+                sliderNav(i);
+            })
+        })
+
+    </script>
+
+</body>
+
+</html>
